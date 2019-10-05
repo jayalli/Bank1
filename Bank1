@@ -1,0 +1,78 @@
+
+class Bank():
+    print("Would you like to deposit or withdraw? ")
+    print('What is your balance and what amount do you want to deposit ')
+
+
+    def __init__(self, balance, amount):
+          self.amount = amount
+          self.balance = balance
+
+    def withdraw(self):
+        self.balance = self.balance - self.amount
+        return self.balance
+
+    def deposit(self):
+           self.balance = self.balance + self.amount
+           return self.balance
+    def transfer(self):
+          self.withdraw(self.amount)
+
+    def actions(self):
+        if action.lower() == 'withdraw':
+            return mybank.withdraw()
+        else:
+            return mybank.deposit()
+    def counter(self):
+        pass
+
+
+
+b = input("Enter balance:" )
+a = input("Enter deposit amount:")
+action = input("Deposit or Withdraw: ").lower()
+
+
+
+mybank = Bank(balance = b ,amount = a)
+print(mybank.actions())
+
+class SavingsAccount(Bank):
+
+      def __init__(self, min_balance = 1000, intrestrate = 1.1):
+          Bank.__init__(self, b, a)
+
+          self.min_balance = min_balance
+          self.intrestrate = intrestrate
+
+      def addinterest(self):
+          self.balance = self.balance * self.intrestrate
+          return self.balance
+
+      def withdraw(self):
+          if self.balance > self.min_balance:
+              return self.balance == self.balance - self.amount
+          else:
+              return "Funds not available"
+
+myBank = SavingsAccount()
+print(myBank.addinterest())
+print(myBank.balance)
+
+
+#you did sometthing stupid uder the savings acct withdraw ==
+
+
+class CheckingAccount(Bank):
+    def __init__(self, initialbalance):
+        self.initialbalace = initialbalance
+
+    def deductFees(self):
+        pass
+
+
+
+#try to find a way to count how many times the program is run and use that for "addinterest"(file log, track how many times balance changes(prob no))
+
+
+
